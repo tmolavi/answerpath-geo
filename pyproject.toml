@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "answerpath-geo"
+version = "0.1.0"
+description = "Privacy-first user question mining for GEO and AEO"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Taqi Molavi"}]
+license = {text = "MIT"}
+keywords = ["geo", "aeo", "seo", "answer-engine-optimization", "prompt-mining", "user-intent", "question-mining"]
+classifiers = ["License :: OSI Approved :: MIT License", "Programming Language :: Python :: 3"]
+
+[project.scripts]
+answerpath = "answerpath_geo.cli:main"
