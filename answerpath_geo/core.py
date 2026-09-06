@@ -70,7 +70,10 @@ def _walk(obj, source):
 
 def classify(text):
     low=text.lower()
-    for intent, words in INTENTS.items():
+    # Commercial and comparison signals should win over broad "how/what"
+    # markers (for example, "How much does ... cost?" is a buying question).
+    for intent in ("buy", "compare", "trust", "solve", "learn"):
+        words = INTENTS[intent]
         if any(w in low for w in words): return intent
     return "discover"
 
