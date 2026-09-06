@@ -6,6 +6,8 @@ It separates **observed questions** extracted from exports and application logs 
 
 [Installation](#installation) · [Quick start](#quick-start) · [Inputs](#supported-inputs) · [Outputs](#outputs) · [GEO/AEO method](#geo-and-aeo-method) · [Privacy](#privacy-and-data-boundaries) · [Integrations](#integrations)
 
+**MCP clients:** [Codex, Antigravity, Claude, Cursor and Cloud setup](#mcp-setup)
+
 ## Why AnswerPath GEO?
 
 Traditional keyword tools show phrases typed into search engines. AI assistants receive longer, conversational questions: “Which agency is reliable for…?”, “What should I compare…?”, and “Is this service worth the price?”. AnswerPath turns the questions you already own into a usable **answer-path map** for content, FAQ, schema and AI visibility research.
@@ -99,6 +101,31 @@ The engine does not claim that a page will rank in Google or be cited by an AI s
 - **GEO prompt discovery:** compare observed questions with generated candidates from projects such as [auto-geo](https://github.com/shadowresearch/auto-geo), keeping the evidence labels separate.
 
 These projects are references and adapters, not vendored code. Their licenses and upstream terms remain applicable.
+
+## MCP setup
+
+AnswerPath exposes one MCP tool, `discover_questions`. The stdio transport works with local Codex, Antigravity, Claude Desktop, Cursor, Windsurf and other MCP clients:
+
+```json
+{
+  "mcpServers": {
+    "answerpath": {
+      "command": "/absolute/path/to/answerpath-geo/.venv/bin/answerpath",
+      "args": ["mcp"]
+    }
+  }
+}
+```
+
+Ask the client to call `discover_questions` with `topic`, optional owned `inputs` (`text` and `source`), and `include_generated`. Generated prompts are always labeled separately from observed questions.
+
+For a private Cloud deployment, run the HTTP transport behind HTTPS and an authentication gateway:
+
+```bash
+answerpath serve-mcp --host 127.0.0.1 --port 8787
+```
+
+The JSON-RPC endpoint is `POST /mcp`. The application deliberately does not implement authentication itself: put it behind your gateway, rate limits and tenant isolation before exposing it publicly. A public URL or a successful protocol handshake does not prove that provider data is available.
 
 ## Privacy and data boundaries
 

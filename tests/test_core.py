@@ -14,3 +14,9 @@ def test_no_generated(tmp_path):
 def test_outputs(tmp_path):
     out=write_outputs(mine('web design', [], True), tmp_path/'out')
     assert (out/'questions.json').exists() and (out/'questions.csv').exists()
+
+def test_mcp_protocol():
+    from answerpath_geo.mcp import handle
+    assert handle({'jsonrpc':'2.0','id':1,'method':'initialize','params':{}})['result']['serverInfo']['name']=='answerpath-geo'
+    out=handle({'jsonrpc':'2.0','id':2,'method':'tools/call','params':{'name':'discover_questions','arguments':{'topic':'web design','include_generated':False,'inputs':[{'text':'How much does web design cost?','source':'test'}]}}})
+    assert out['result']['structuredContent']['questions'][0]['intent']=='buy'
