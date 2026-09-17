@@ -99,9 +99,28 @@ The engine does not claim that a page will rank in Google or be cited by an AI s
 - **Codex, Antigravity, Cursor and other AI IDEs:** export or copy the local session data first; use a read-only copy as input.
 - **FAQ workflows:** feed `questions.json` into [FAQ Extraction Pipeline](https://github.com/emfrg/faq-extraction-pipeline) for richer issue extraction, embeddings and FAQ synthesis.
 - **GEO prompt discovery:** compare observed questions with generated candidates from projects such as [auto-geo](https://github.com/shadowresearch/auto-geo), keeping the evidence labels separate.
-- **GEO-Scope Benchmark Integration:** AnswerPath GEO serves as the official **Question Source & Intent Discovery Layer** for [GEO-Scope](https://github.com/tmolavi/geo-scope) empirical AI visibility studies (such as the *GEO, SEO & Digital Marketing Agency Iran 2026 Benchmark*). It categorizes demand into explicit search intent strata (`commercial`, `compare`, `trust`, `solve`, `buy`) and strictly preserves provenance tags (`source_type: "observed"` vs `"generated"`), preventing synthetic prompt leakage into measured user demand.
 
-These projects are references and adapters, not vendored code. Their licenses and upstream terms remain applicable.
+## 🏆 Benchmark Contribution
+
+AnswerPath GEO generated the **Question Discovery & Intent Stratification Layer** used in the official [GEO, SEO & Digital Marketing Agency Iran 2026 Benchmark](https://github.com/tmolavi/geo-scope/tree/main/benchmarks/geo-seo-digital-agency-iran-2026.1):
+
+* **Prompts Generated & Stratified**: 30 standardized queries.
+* **Strict Demand Provenance Separation**:
+  * **Observed User Demand ($N=15$)**: Extracted from genuine conversational search logs (`source_type: "observed"`).
+  * **Exploration Hypotheses ($N=15$)**: Systematic template variations (`source_type: "generated"`).
+* **5 Intent Strata**: `commercial` (general evaluation), `compare` (head-to-head alternatives), `trust` (credibility & contracts), `solve` (technical fixes), and `buy` (procurement & quotes).
+* **Provenance Contract Schema**:
+  ```json
+  {
+    "id": "PRM-IR-001",
+    "prompt": "بهترین آژانس دیجیتال مارکتینگ و سئو در ایران کدام است؟",
+    "intent": "commercial",
+    "source_type": "observed",
+    "source_reference": "answerpath",
+    "cluster": "general_recommendation"
+  }
+  ```
+* **Ecosystem Architecture**: See [Benchmark Ecosystem Map](docs/BENCHMARK_ECOSYSTEM.md) for data flow across AnswerPath, GEO-Scope, SAGE, MAVI, and SiteProbe.
 
 ## MCP setup
 
