@@ -1,0 +1,16 @@
+{
+  "topic": "خدمات سئو و دیجیتال مارکتینگ در ایران",
+  "domain": "digital_marketing",
+  "seed_entities": [
+    "Web24",
+    "Novin",
+    "Dimarketing",
+    "Inten"
+  ],
+  "intent_strata": [
+    "commercial",
+    "comparative",
+    "informational",
+    "transactional"
+  ]
+}

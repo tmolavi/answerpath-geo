@@ -1,0 +1,78 @@
+{
+  "status": "success",
+  "demo_version": "2026.1",
+  "source": "answerpath_geo",
+  "total_prompts": 4,
+  "prompts": [
+    {
+      "prompt_id": "AP-PRM-001",
+      "question": "بهترین شرکت سئو در ایران برای سایت فروشگاهی کدام است؟",
+      "source_type": "observed",
+      "intent_stratum": "commercial",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "observed",
+        "frequency": 142,
+        "cluster": "agency_selection"
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-002",
+      "question": "مقایسه وب۲۴ و نوین در سئو تکنیکال و تعرفه خدمات",
+      "source_type": "observed",
+      "intent_stratum": "comparative",
+      "target_entities": [
+        "Web24",
+        "Novin"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "observed",
+        "frequency": 88,
+        "cluster": "comparative_evaluation"
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-003",
+      "question": "کدام آژانس خدمات سئو تضمینی و بهینه‌سازی فنی ارائه می‌دهد؟",
+      "source_type": "generated",
+      "intent_stratum": "informational",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "generated",
+        "frequency": 45,
+        "cluster": "service_capabilities"
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-004",
+      "question": "هزینه سئو ماهانه در شرکت‌های معتبر بازاریابی دیجیتال چقدر است؟",
+      "source_type": "observed",
+      "intent_stratum": "transactional",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "observed",
+        "frequency": 210,
+        "cluster": "pricing_and_packages"
+      }
+    }
+  ]
+}
