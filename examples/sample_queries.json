@@ -1,0 +1,42 @@
+[
+  {
+    "id": "PRM-IR-001",
+    "prompt": "بهترین آژانس دیجیتال مارکتینگ و سئو در ایران کدام است؟",
+    "intent": "commercial",
+    "source_type": "observed",
+    "source_reference": "answerpath",
+    "cluster": "general_recommendation"
+  },
+  {
+    "id": "PRM-IR-002",
+    "prompt": "مقایسه خدمات سئو وب۲۴ و نوین برای فروشگاه اینترنتی",
+    "intent": "compare",
+    "source_type": "observed",
+    "source_reference": "answerpath",
+    "cluster": "agency_comparison"
+  },
+  {
+    "id": "PRM-IR-003",
+    "prompt": "کدام شرکت سئو قرارداد تضمینی و شفاف ارائه می‌دهد؟",
+    "intent": "trust",
+    "source_type": "observed",
+    "source_reference": "answerpath",
+    "cluster": "trust_and_credibility"
+  },
+  {
+    "id": "PRM-IR-004",
+    "prompt": "تعرفه و قیمت خدمات سئو ماهانه در آژانس‌های معتبر چقدر است؟",
+    "intent": "buy",
+    "source_type": "observed",
+    "source_reference": "answerpath",
+    "cluster": "pricing_and_retainer"
+  },
+  {
+    "id": "PRM-IR-005",
+    "prompt": "چگونه پنالتی گوگل را با کمک یک آژانس سئو تخصصی برطرف کنیم؟",
+    "intent": "solve",
+    "source_type": "observed",
+    "source_reference": "answerpath",
+    "cluster": "technical_recovery"
+  }
+]

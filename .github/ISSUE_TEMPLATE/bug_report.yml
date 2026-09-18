@@ -1,0 +1,24 @@
+name: Bug report
+description: Create a report to help us improve
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to report an issue!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us what you expected to happen
+      placeholder: Describe the issue...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: How can we reproduce this behavior?
+      placeholder: |
+        1. Run `answerpath ...`
+        2. See error...
+    validations:
+      required: true

@@ -122,6 +122,24 @@ AnswerPath GEO generated the **Question Discovery & Intent Stratification Layer*
   ```
 * **Ecosystem Architecture**: See [Benchmark Ecosystem Map](docs/BENCHMARK_ECOSYSTEM.md) for data flow across AnswerPath, GEO-Scope, SAGE, MAVI, and SiteProbe.
 
+## 🏛️ Ecosystem
+
+AnswerPath GEO operates as the question discovery component of the **Molavi AI Visibility Stack**:
+
+- **Discovery**: [AnswerPath GEO](https://github.com/tmolavi/answerpath-geo)
+- **Measurement**: [GEO-Scope](https://github.com/tmolavi/geo-scope)
+- **Diagnostics**: [SAGE Audit](https://github.com/tmolavi/sage-audit)
+- **Action**: [SiteProbe](https://github.com/tmolavi/siteprobe)
+- **Protocol**: [MCP GEO Server](https://github.com/tmolavi/mcp-geo-server)
+
+## 📖 Runnable Python Example
+
+Run the bundled discovery example script:
+```bash
+python examples/discover_example.py
+```
+Sample benchmark query payload is available in [`examples/sample_queries.json`](examples/sample_queries.json).
+
 ## MCP setup
 
 AnswerPath exposes one MCP tool, `discover_questions`. The stdio transport works with local Codex, Antigravity, Claude Desktop, Cursor, Windsurf and other MCP clients:
@@ -151,13 +169,15 @@ The JSON-RPC endpoint is `POST /mcp`. The application deliberately does not impl
 
 Processing is local and deterministic. AnswerPath does not transmit input files. Do not place private exports in a public repository or commit generated files containing message content. Remove or hash identifiers before sharing results. Only analyze data for which you have authorization.
 
-## Development
+## Development & Testing
 
 ```bash
-.venv/bin/pip install -e '.[dev]'  # if dev extras are added by a downstream fork
-python -m pytest -q
+pip install -e .
+pytest tests/ -v
 ```
 
-## License
+## 👤 Author & License
 
+Developed by **Taghi Molavi** — [molavi.pro](https://molavi.pro)  
 MIT. See [LICENSE](LICENSE).
+

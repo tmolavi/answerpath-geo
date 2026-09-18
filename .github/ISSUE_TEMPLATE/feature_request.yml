@@ -1,0 +1,18 @@
+name: Feature request
+description: Suggest an idea or new capability
+body:
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature Description
+      description: Clear and concise explanation of the proposed feature
+      placeholder: Describe the feature...
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Problem Solved
+      description: What problem or use-case does this address?
+    validations:
+      required: true
