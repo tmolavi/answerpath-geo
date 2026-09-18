@@ -100,9 +100,13 @@ The engine does not claim that a page will rank in Google or be cited by an AI s
 - **FAQ workflows:** feed `questions.json` into [FAQ Extraction Pipeline](https://github.com/emfrg/faq-extraction-pipeline) for richer issue extraction, embeddings and FAQ synthesis.
 - **GEO prompt discovery:** compare observed questions with generated candidates from projects such as [auto-geo](https://github.com/shadowresearch/auto-geo), keeping the evidence labels separate.
 
-## 🏆 Benchmark Contribution
+## 🏆 Evidence & Benchmark Contribution
 
 AnswerPath GEO generated the **Question Discovery & Intent Stratification Layer** used in the official [GEO, SEO & Digital Marketing Agency Iran 2026 Benchmark](https://github.com/tmolavi/geo-scope/tree/main/benchmarks/geo-seo-digital-agency-iran-2026.1):
+
+- **Verified Query Dataset**: [`examples/sample_queries.json`](examples/sample_queries.json)
+- **Standalone Offline Demo**: [`examples/public_demo/`](examples/public_demo/)
+- **Cross-Repository Evidence Map**: [Ecosystem Evidence Flow](https://github.com/tmolavi/geo-scope/blob/main/docs/EVIDENCE_MAP.md)
 
 * **Prompts Generated & Stratified**: 30 standardized queries.
 * **Strict Demand Provenance Separation**:
