@@ -180,6 +180,16 @@ pip install -e .
 pytest tests/ -v
 ```
 
+## 💬 Community & External Collaboration
+
+We welcome contributions to query mining, clustering algorithms, and demand stratification:
+
+- **Discussions**: [GitHub Discussions](https://github.com/tmolavi/answerpath-geo/discussions)
+- **First Contribution Guide**: [`docs/FIRST_CONTRIBUTION.md`](docs/FIRST_CONTRIBUTION.md)
+- **Research Collaboration**: [`docs/RESEARCH_COLLABORATION.md`](docs/RESEARCH_COLLABORATION.md)
+- **Issues & Bug Reports**: [GitHub Issues](https://github.com/tmolavi/answerpath-geo/issues)
+- **Contribution Standards**: [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`SECURITY.md`](SECURITY.md)
+
 ## 👤 Author & License
 
 Developed by **Taghi Molavi** — [molavi.pro](https://molavi.pro)  
