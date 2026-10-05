@@ -163,7 +163,7 @@ The engine does not claim that a page will rank in Google or be cited by an AI s
 AnswerPath GEO generated the **Question Discovery & Intent Stratification Layer** used in the official [GEO, SEO & Digital Marketing Agency Iran 2026 Benchmark](https://github.com/tmolavi/geo-scope/tree/main/benchmarks/geo-seo-digital-agency-iran-2026.1):
 
 - **Verified Query Dataset**: [`examples/sample_queries.json`](examples/sample_queries.json)
-- **Standalone Offline Demo**: [`examples/public_demo/`](examples/public_demo/)
+- **Standalone Offline Demo**: [`examples/public_demo/`](examples/public_demo/README.md)
 - **Cross-Repository Evidence Map**: [Ecosystem Evidence Flow](https://github.com/tmolavi/geo-scope/blob/main/docs/EVIDENCE_MAP.md)
 
 * **Prompts Generated & Stratified**: 30 standardized queries.
