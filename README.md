@@ -4,6 +4,45 @@
 
 It separates **observed questions** extracted from exports and application logs from **generated research prompts**. This distinction matters: generated prompts are hypotheses, not evidence of what people actually asked.
 
+**Languages:** [فارسی](README.fa.md) · [Türkçe](README.tr.md) · [Azərbaycan dili](README.az.md) · [العربية](README.ar.md)
+
+**Try it:** [PyPI package](https://pypi.org/project/answerpath-geo/) · [Hugging Face demo](https://huggingface.co/spaces/taqimolavi/answerpath-geo)
+
+## شروع خیلی ساده (برای تیم)
+
+AnswerPath فقط یک کار انجام می‌دهد: از نام کسب‌وکار یا موضوع شما، فهرستی از سؤال‌هایی می‌سازد که می‌توانند برای FAQ، مقاله، صفحه خدمات و تحقیق GEO استفاده شوند.
+
+### آیا سرویس خارجی یا کلید API می‌خواهد؟
+
+خیر. برای حالت معمول، فقط Python 3.10 یا جدیدتر لازم است. ابزار به ChatGPT، Claude، گوگل یا هیچ حسابی وارد نمی‌شود و فایل‌های شما را به جایی نمی‌فرستد.
+
+### سریع‌ترین استفاده
+
+```bash
+pip install answerpath-geo
+answerpath "مشاوره سئو برای فروشگاه اینترنتی"
+```
+
+دو فایل در پوشه‌ی `answerpath-output/` ساخته می‌شود: `questions.json` برای پردازش ماشینی و `questions.csv` برای باز کردن در Excel یا Google Sheets.
+
+### خروجی را چطور بخوانیم؟
+
+- `observed`: سؤال واقعاً در فایل ورودی شما دیده شده است.
+- `generated`: سؤال پیشنهادی ابزار است؛ به معنی تقاضای واقعی نیست.
+- `intent` و `stage`: نشان می‌دهند کاربر دنبال یادگیری، مقایسه، خرید یا اعتمادسازی بوده و در کدام مرحله قرار دارد.
+
+اگر هنوز فایل مکالمه یا لاگ ندارید، فقط نام موضوع را بدهید. اگر داده‌ی واقعی دارید، آن را با `--input` اضافه کنید. برای حفظ حریم خصوصی، از فایل‌های ناشناس‌سازی‌شده استفاده کنید.
+
+### اگر فقط سؤال‌های واقعی را می‌خواهید
+
+```bash
+answerpath "خدمات سئو" --input ./support.json --no-generated
+```
+
+### اگر خطا دیدید
+
+اول این دو مورد را بررسی کنید: Python شما باید 3.10+ باشد و نصب باید در همان محیطی انجام شود که دستور `answerpath` را اجرا می‌کنید. این ابزار برای اجرای محلی به Hugging Face یا ZeroGPU وابسته نیست. [راهنمای کامل فارسی](README.fa.md) را هم ببینید.
+
 [Installation](#installation) · [Quick start](#quick-start) · [Inputs](#supported-inputs) · [Outputs](#outputs) · [GEO/AEO method](#geo-and-aeo-method) · [Privacy](#privacy-and-data-boundaries) · [Integrations](#integrations)
 
 **MCP clients:** [Codex, Antigravity, Claude, Cursor and Cloud setup](#mcp-setup)
