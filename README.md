@@ -1,47 +1,65 @@
 # AnswerPath GEO — Discover the Questions People Ask AI Before They Find Your Business
 
-**AnswerPath GEO** is a privacy-first, open-source **SEO, GEO and AEO question mining engine**. Give it a business, service, website topic or keyword and it builds a transparent question map showing what people may ask an AI assistant before choosing a provider.
+[![PyPI version](https://img.shields.io/pypi/v/answerpath-geo.svg)](https://pypi.org/project/answerpath-geo/)
+[![Python versions](https://img.shields.io/pypi/pyversions/answerpath-geo.svg)](https://pypi.org/project/answerpath-geo/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/taqimolavi/answerpath-geo)
 
-It separates **observed questions** extracted from exports and application logs from **generated research prompts**. This distinction matters: generated prompts are hypotheses, not evidence of what people actually asked.
+**AnswerPath GEO** is a privacy-first, open-source **AI Keyword & Question Mining Engine for SEO, GEO (Generative Engine Optimization), and AEO (Answer Engine Optimization)**. Give it a business, service, website URL or topic, and it mines the authentic conversational questions, voice dictations, and multimodal (image/screenshot) queries that real humans ask AI engines (ChatGPT, Perplexity, Claude, Gemini, SearchGPT) before choosing a provider.
+
+It maintains a strict epistemic boundary: separating **observed questions** extracted from owned exports and application logs from **generated research prompts**.
 
 **Languages:** [فارسی](README.fa.md) · [Türkçe](README.tr.md) · [Azərbaycan dili](README.az.md) · [العربية](README.ar.md)
 
 **Try it:** [PyPI package](https://pypi.org/project/answerpath-geo/) · [Hugging Face demo](https://huggingface.co/spaces/taqimolavi/answerpath-geo)
 
+---
+
 ## شروع خیلی ساده (برای تیم)
 
-AnswerPath فقط یک کار انجام می‌دهد: از نام کسب‌وکار یا موضوع شما، فهرستی از سؤال‌هایی می‌سازد که می‌توانند برای FAQ، مقاله، صفحه خدمات و تحقیق GEO استفاده شوند.
+AnswerPath کی‌ورد ریسرچ عصر هوش مصنوعی است: به جای عبارات کوتاه و کلیدواژه‌ای موتورهای جستجوی سنتی، پرسش‌های واقعی، محاوره‌ای، صوتی (Voice) و تصویری (Multimodal) کاربران را شبیه‌سازی و استخراج می‌کند.
 
 ### آیا سرویس خارجی یا کلید API می‌خواهد؟
 
-خیر. برای حالت معمول، فقط Python 3.10 یا جدیدتر لازم است. ابزار به ChatGPT، Claude، گوگل یا هیچ حسابی وارد نمی‌شود و فایل‌های شما را به جایی نمی‌فرستد.
+خیر. برای حالت معمول، فقط Python 3.10 یا جدیدتر لازم است. ابزار کاملاً محلی (Local-first) و بدون وابستگی اجرا می‌شود، به هیچ حساب یا API خارجی متصل نمی‌شود و داده‌های شما را به جایی ارسال نمی‌کند.
 
 ### سریع‌ترین استفاده
 
 ```bash
 pip install answerpath-geo
-answerpath "مشاوره سئو برای فروشگاه اینترنتی"
+answerpath "طراحی سایت فروشگاهی"
 ```
 
-دو فایل در پوشه‌ی `answerpath-output/` ساخته می‌شود: `questions.json` برای پردازش ماشینی و `questions.csv` برای باز کردن در Excel یا Google Sheets.
-
-### خروجی را چطور بخوانیم؟
-
-- `observed`: سؤال واقعاً در فایل ورودی شما دیده شده است.
-- `generated`: سؤال پیشنهادی ابزار است؛ به معنی تقاضای واقعی نیست.
-- `intent` و `stage`: نشان می‌دهند کاربر دنبال یادگیری، مقایسه، خرید یا اعتمادسازی بوده و در کدام مرحله قرار دارد.
-
-اگر هنوز فایل مکالمه یا لاگ ندارید، فقط نام موضوع را بدهید. اگر داده‌ی واقعی دارید، آن را با `--input` اضافه کنید. برای حفظ حریم خصوصی، از فایل‌های ناشناس‌سازی‌شده استفاده کنید.
-
-### اگر فقط سؤال‌های واقعی را می‌خواهید
+یا مستقیماً با دادن آدرس وب‌سایت:
 
 ```bash
-answerpath "خدمات سئو" --input ./support.json --no-generated
+answerpath https://novin.com
 ```
 
-### اگر خطا دیدید
+سه فایل در پوشه‌ی `answerpath-output/` ساخته می‌شود:
+1. `questions.json`: تمام فیلدهای غنی سوالات به همراه نوع رسانه (متن، صوت، تصویر)، پرسونای کاربر و دسته‌بندی قصد خرید.
+2. `questions.csv`: برای باز کردن آسان در Excel یا Google Sheets.
+3. `benchmark_prompts.json`: فرمت استاندارد برای بنچمارک‌های ارزیابی GEO-Scope.
 
-اول این دو مورد را بررسی کنید: Python شما باید 3.10+ باشد و نصب باید در همان محیطی انجام شود که دستور `answerpath` را اجرا می‌کنید. این ابزار برای اجرای محلی به Hugging Face یا ZeroGPU وابسته نیست. [راهنمای کامل فارسی](README.fa.md) را هم ببینید.
+### شبیه‌سازی انواع روش‌های پرسش از هوش مصنوعی (Modality)
+
+کاربران امروزی به ۳ شکل با مدل‌های زبانی تعامل دارند که همگی توسط AnswerPath پشتیبانی می‌شوند:
+- **متنی محاوره‌ای (Conversational Text)**: پرسش‌های چندجمله‌ای شامل سناریوی واقعی، دغدغه و مقایسه.
+- **صوتی و ویس (Voice Dictation)**: لحن محاوره‌ای گفتاری با اصطلاحات رایج صوتی («سلام چت‌جی‌پی‌تی...»، «ببین من الان...»).
+- **چندحالته و تصویری (Multimodal / Vision)**: آپلود اسکرین‌شات از سایت رقیب، پیش‌فاکتور، نمودار افت سرچ‌کنسول یا جدول تعرفه‌ها به همراه متن ارزیابی تصویر.
+
+```bash
+# فقط سوالات صوتی و ویس
+answerpath "خدمات سئو" --modality voice
+
+# فقط سوالات چندحالته تصویری با زمینه عکس
+answerpath "خدمات ابری" --modality image
+
+# تعیین زبان خروجی (fa, en, tr, ar)
+answerpath "طراحی سایت" --lang fa --count 25
+```
+
+---
 
 [Installation](#installation) · [Quick start](#quick-start) · [Inputs](#supported-inputs) · [Outputs](#outputs) · [GEO/AEO method](#geo-and-aeo-method) · [Privacy](#privacy-and-data-boundaries) · [Integrations](#integrations)
 
@@ -49,114 +67,85 @@ answerpath "خدمات سئو" --input ./support.json --no-generated
 
 ## Why AnswerPath GEO?
 
-Traditional keyword tools show phrases typed into search engines. AI assistants receive longer, conversational questions: “Which agency is reliable for…?”, “What should I compare…?”, and “Is this service worth the price?”. AnswerPath turns the questions you already own into a usable **answer-path map** for content, FAQ, schema and AI visibility research.
+Traditional keyword research tools (Ahrefs, Semrush) report short keyword fragments entered into search bars (`seo agency tehran`). AI search engines (ChatGPT Search, Perplexity Sonar, Gemini Grounding, Claude) receive complex, conversational prompts:
+- *“I run an online boutique in Tehran. Should I hire an in-house SEO or contract an agency? What's a fair monthly retainer in 2026?”*
+- *“Hey ChatGPT, an agency quoted me \$2,000/mo claiming guaranteed #1 rankings in two months. Is that a scam?”*
+- *“[Attached screenshot of Search Console drop]: What technical issues caused this organic traffic loss and which agency specializes in penalty recovery?”*
 
-It is designed for marketers, publishers, agencies and product teams who need to:
-
-- discover and normalize user questions from ChatGPT, Claude, Codex, Antigravity, Cursor and chatbot exports;
-- group questions by intent and decision stage;
-- identify recurring questions without silently inventing demand;
-- create an auditable prompt bank for GEO/AEO experiments;
-- keep private conversation data on the operator’s machine.
+AnswerPath bridges this gap:
+- **Zero Hallucinated Keywords**: Models authentic user queries instead of robotic translations.
+- **Website URL Analysis**: Ingests domain metadata to tailor questions to your brand and competitors.
+- **Multi-Modality**: Simulates typed queries, voice speech transcriptions, and vision/image uploads.
+- **Persona & Funnel Stratification**: Classifies by user persona (`business_owner`, `technical_buyer`, `skeptical_customer`, `marketing_lead`) and acquisition stage (`awareness`, `consideration`, `decision`, `retention`).
+- **GEO-Scope Benchmark Compatible**: Directly exports prompt banks conforming to the Molavi AI Visibility Stack.
 
 ## Installation
 
 Requires Python 3.10+.
 
 ```bash
+pip install answerpath-geo
+```
+
+Or for development:
+
+```bash
 git clone https://github.com/tmolavi/answerpath-geo.git
 cd answerpath-geo
 python3 -m venv .venv
-.venv/bin/pip install -e .
+source .venv/bin/activate
+pip install -e .
 ```
-
-## PyPI publishing
-
-The stable package is available at [PyPI](https://pypi.org/project/answerpath-geo/).
-Future releases are published from GitHub Actions through Trusted Publishing;
-no PyPI token is stored in the repository.
-
-To publish a new version:
-
-1. Update the version in `pyproject.toml`.
-2. Commit and push the release changes to `main`.
-3. Create a **published GitHub Release** for the matching version.
-
-The workflow is [`.github/workflows/publish.yml`](.github/workflows/publish.yml)
-and uses the `pypi` GitHub environment for `tmolavi/answerpath-geo`. The
-PyPI-side publisher must remain mapped to Owner `tmolavi`, Repository
-`answerpath-geo`, Workflow `publish.yml`, Environment `pypi`.
-
-Do not put a PyPI API token in GitHub secrets or commit it to this repository.
 
 ## Quick start
 
-Create a prompt map for a service or keyword:
-
+### 1. By Topic / Keyword
 ```bash
 answerpath "طراحی سایت فروشگاهی"
 ```
 
-The command writes `answerpath-output/questions.json` and `questions.csv`.
-
-Analyze owned conversation data and add generated discovery prompts:
-
+### 2. By Website URL (Auto-Extracts Brand & Competitive Context)
 ```bash
-answerpath "مشاوره سئو پزشکی" \\
-  --input ~/Downloads/chatgpt-export.zip \\
-  --input ./support-chat.json \\
-  --out ./research/seo-medical
+answerpath https://example.com --count 30
 ```
 
-Keep only questions actually found in your supplied data:
-
+### 3. Mine Real Chat Exports (Privacy-First Observed Queries)
 ```bash
-answerpath "سرویس حسابداری" --input ./logs --no-generated
+answerpath "خدمات سئو" \
+  --input ~/Downloads/chatgpt-export.zip \
+  --input ./support-chat.json \
+  --out ./research/seo-output
 ```
 
-## Supported inputs
+### 4. Keep Only Observed Real Queries (No Synthetic Prompts)
+```bash
+answerpath "حسابداری آنلاین" --input ./logs/chat.json --no-generated
+```
 
-AnswerPath reads local JSON, JSONL, CSV, directories and ZIP archives. It recognizes common `role=user|human|customer` fields and nested ChatGPT/Claude export structures. It is compatible in principle with exports produced by tools such as [openai_export_parser](https://github.com/temnoon/openai_export_parser), [llm-export-analytics](https://github.com/noah-chelednik/llm-export-analytics), and the local multi-client history model used by [ContextBridgeAI](https://github.com/T-Gojo/ContextBridgeAi).
+## Supported Inputs
 
-It does not log in to ChatGPT, Claude, Google, or any other account, scrape other users, or obtain API keys.
+AnswerPath reads local JSON, JSONL, CSV, directories and ZIP archives containing owned conversation logs. It recognizes `role=user|human|customer` fields and nested export structures from ChatGPT, Claude, and custom customer chat exports.
 
-## Outputs
+It does **not** scrape provider accounts, log into user portals, or send conversation data over external networks.
 
-Each normalized question contains:
+## Outputs & Schema
 
-| Field | Meaning |
-|---|---|
-| `text` | Question text as extracted or generated |
-| `evidence` | `observed`, `generated`, or `observed+generated` |
-| `source` | Input file or generation rule |
-| `intent` | `learn`, `compare`, `buy`, `solve`, `trust`, or `discover` |
-| `stage` | Awareness, consideration or decision |
-| `frequency` | Number of similar records merged |
-| `cluster` | Stable output cluster identifier |
+Each query record contains:
 
-Frequency is meaningful only for observed records from a defined dataset. Template prompts are clearly labeled and must not be reported as customer demand.
-
-## GEO and AEO method
-
-AnswerPath supports a defensible workflow:
-
-1. **Collect** owned exports, support logs or application traces.
-2. **Extract** user turns and preserve their source path.
-3. **Normalize** whitespace and common message formats.
-4. **Classify** intent and decision stage with inspectable rules.
-5. **Deduplicate** near-identical questions while retaining frequency.
-6. **Expand** with clearly labeled prompt hypotheses when requested.
-7. **Publish answers**: create concise answer-first pages, FAQ sections, comparison tables and structured data based on recurring observed questions.
-8. **Measure** those prompts in a separate GEO benchmark; never mix hypotheses with measured demand.
-
-The engine does not claim that a page will rank in Google or be cited by an AI system. Those are outcomes to test with your own content and provider evidence.
-
-## Integrations
-
-- **ChatGPT / Claude exports:** pass the downloaded ZIP or extracted JSON to `--input`.
-- **Codex, Antigravity, Cursor and other AI IDEs:** export or copy the local session data first; use a read-only copy as input.
-- **FAQ workflows:** feed `questions.json` into [FAQ Extraction Pipeline](https://github.com/emfrg/faq-extraction-pipeline) for richer issue extraction, embeddings and FAQ synthesis.
-- **GEO prompt discovery:** compare observed questions with generated candidates from projects such as [auto-geo](https://github.com/shadowresearch/auto-geo), keeping the evidence labels separate.
+| Field | Description | Example |
+|---|---|---|
+| `id` | Unique prompt identifier | `AP-PRM-001` |
+| `prompt` (or `text`) | Natural human question asked to AI | *"من یک فروشگاه اینترنتی نوپا دارم..."* |
+| `modality` | Input modality | `text`, `voice`, `multimodal_image` |
+| `persona` | Inferred user persona | `business_owner`, `technical_buyer`, `skeptical_customer` |
+| `intent` | Core intent category | `learn`, `compare`, `buy`, `solve`, `trust`, `audit` |
+| `stage` | Customer acquisition stage | `awareness`, `consideration`, `decision`, `retention` |
+| `source_type` | Provenance classification | `observed` (from logs) or `generated` (simulated) |
+| `source_reference` | Origin tracking | `answerpath:text`, `answerpath:voice`, `support.json` |
+| `cluster_label` | Topic cluster name | `hiring_vs_outsourcing`, `pricing_transparency` |
+| `image_context` | Context for multimodal queries | *"اسکرین‌شات از معماری رابط کاربری رقیب"* |
+| `voice_markers` | Spoken preamble markers | *"سلام چت‌جی‌پی‌تی، ببین من..."* |
+| `frequency` | Occurrence count in observed logs | `1`, `42` |
 
 ## 🏆 Evidence & Benchmark Contribution
 
@@ -186,50 +175,38 @@ AnswerPath GEO generated the **Question Discovery & Intent Stratification Layer*
 
 ## 🏛️ Ecosystem
 
-AnswerPath GEO operates as the question discovery component of the **Molavi AI Visibility Stack**:
+AnswerPath GEO is part of the **Molavi AI Visibility Stack**:
 
-- **Discovery**: [AnswerPath GEO](https://github.com/tmolavi/answerpath-geo)
-- **Measurement**: [GEO-Scope](https://github.com/tmolavi/geo-scope)
-- **Diagnostics**: [SAGE Audit](https://github.com/tmolavi/sage-audit)
-- **Action**: [SiteProbe](https://github.com/tmolavi/siteprobe)
-- **Protocol**: [MCP GEO Server](https://github.com/tmolavi/mcp-geo-server)
+- **Discovery**: [AnswerPath GEO](https://github.com/tmolavi/answerpath-geo) — Mines conversational, voice, and multimodal questions.
+- **Measurement**: [GEO-Scope](https://github.com/tmolavi/geo-scope) — Multi-model benchmark execution across Gemini, OpenAI, Claude, Perplexity.
+- **Diagnostics**: [SAGE Audit](https://github.com/tmolavi/sage-audit) — Pre-retrieval technical & semantic citation diagnostics.
+- **Action**: [SiteProbe](https://github.com/tmolavi/siteprobe) — Autonomous code & structured data remediation.
+- **Protocol**: [MCP GEO Server](https://github.com/tmolavi/mcp-geo-server) — Standard Model Context Protocol interface.
 
-## 📖 Runnable Python Example
+## MCP Setup
 
-Run the bundled discovery example script:
-```bash
-python examples/discover_example.py
-```
-Sample benchmark query payload is available in [`examples/sample_queries.json`](examples/sample_queries.json).
-
-## MCP setup
-
-AnswerPath exposes one MCP tool, `discover_questions`. The stdio transport works with local Codex, Antigravity, Claude Desktop, Cursor, Windsurf and other MCP clients:
+AnswerPath includes a zero-dependency MCP server (`discover_questions` tool) compatible with Codex, Antigravity, Claude Desktop, Cursor, and Windsurf:
 
 ```json
 {
   "mcpServers": {
     "answerpath": {
-      "command": "/absolute/path/to/answerpath-geo/.venv/bin/answerpath",
-      "args": ["mcp"]
+      "command": "python3",
+      "args": ["-m", "answerpath_geo", "mcp"]
     }
   }
 }
 ```
 
-Ask the client to call `discover_questions` with `topic`, optional owned `inputs` (`text` and `source`), and `include_generated`. Generated prompts are always labeled separately from observed questions.
-
-For a private Cloud deployment, run the HTTP transport behind HTTPS and an authentication gateway:
+Or serve via HTTP:
 
 ```bash
 answerpath serve-mcp --host 127.0.0.1 --port 8787
 ```
 
-The JSON-RPC endpoint is `POST /mcp`. The application deliberately does not implement authentication itself: put it behind your gateway, rate limits and tenant isolation before exposing it publicly. A public URL or a successful protocol handshake does not prove that provider data is available.
+## Privacy & Data Boundaries
 
-## Privacy and data boundaries
-
-Processing is local and deterministic. AnswerPath does not transmit input files. Do not place private exports in a public repository or commit generated files containing message content. Remove or hash identifiers before sharing results. Only analyze data for which you have authorization.
+All processing is deterministic and strictly local. AnswerPath never transmits input files or sensitive customer chats to third parties.
 
 ## Development & Testing
 
@@ -238,17 +215,7 @@ pip install -e .
 pytest tests/ -v
 ```
 
-## 💬 Community & External Collaboration
-
-We welcome contributions to query mining, clustering algorithms, and demand stratification:
-
-- **Discussions**: [GitHub Discussions](https://github.com/tmolavi/answerpath-geo/discussions)
-- **First Contribution Guide**: [`docs/FIRST_CONTRIBUTION.md`](docs/FIRST_CONTRIBUTION.md)
-- **Research Collaboration**: [`docs/RESEARCH_COLLABORATION.md`](docs/RESEARCH_COLLABORATION.md)
-- **Issues & Bug Reports**: [GitHub Issues](https://github.com/tmolavi/answerpath-geo/issues)
-- **Contribution Standards**: [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`SECURITY.md`](SECURITY.md)
-
 ## 👤 Author & License
 
 Developed by **Taghi Molavi** — [molavi.pro](https://molavi.pro)  
-MIT. See [LICENSE](LICENSE).
+License: [MIT](LICENSE).

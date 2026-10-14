@@ -4,14 +4,36 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "answerpath-geo"
-version = "0.1.0"
-description = "Privacy-first user question mining for GEO and AEO"
+version = "0.2.0"
+description = "Privacy-first conversational, voice, and multimodal user question mining for SEO, GEO, and AEO"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{name = "Taqi Molavi"}]
 license = {text = "MIT"}
-keywords = ["geo", "aeo", "seo", "answer-engine-optimization", "prompt-mining", "user-intent", "question-mining"]
-classifiers = ["License :: OSI Approved :: MIT License", "Programming Language :: Python :: 3"]
+keywords = [
+  "geo",
+  "aeo",
+  "seo",
+  "answer-engine-optimization",
+  "generative-engine-optimization",
+  "prompt-mining",
+  "conversational-search",
+  "voice-search",
+  "multimodal-ai",
+  "user-intent",
+  "question-mining"
+]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
 
 [project.scripts]
 answerpath = "answerpath_geo.cli:main"
@@ -21,3 +43,4 @@ Homepage = "https://molavi.pro"
 Repository = "https://github.com/tmolavi/answerpath-geo"
 Documentation = "https://github.com/tmolavi/answerpath-geo#readme"
 Issues = "https://github.com/tmolavi/answerpath-geo/issues"
+Changelog = "https://github.com/tmolavi/answerpath-geo/blob/main/CHANGELOG.md"

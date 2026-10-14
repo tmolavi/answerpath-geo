@@ -9,9 +9,14 @@ prompts for downstream ingestion by GEO-Scope benchmark suites.
 """
 
 import json
+import sys
 from pathlib import Path
 
+# Ensure root package is available
 DEMO_DIR = Path(__file__).parent
+sys.path.insert(0, str(DEMO_DIR.parents[1]))
+
+from answerpath_geo.core import mine
 
 def run():
     input_file = DEMO_DIR / "sample_input.json"
@@ -31,61 +36,32 @@ def run():
     print(f"• Execution Mode      : standalone_demo_fixture (offline)")
     print("-" * 70)
 
-    # Discovered & Structured Prompt Records
-    prompts = [
-        {
-            "prompt_id": "AP-PRM-001",
-            "question": "بهترین شرکت سئو در ایران برای سایت فروشگاهی کدام است؟",
-            "source_type": "observed",
-            "intent_stratum": "commercial",
+    # Discovered & Structured Prompt Records via AnswerPath GEO
+    raw_prompts = mine(
+        topic=topic,
+        include_generated=True,
+        benchmark_format=True,
+        count=15
+    )
+
+    prompts = []
+    for idx, p in enumerate(raw_prompts, start=1):
+        prompts.append({
+            "prompt_id": p["id"],
+            "question": p["prompt"],
+            "source_type": p["source_type"],
+            "intent_stratum": p["intent"],
+            "modality": p.get("modality", "text"),
             "target_entities": entities,
             "provenance": {
                 "discovered_by": "answerpath_geo",
-                "evidence": "observed",
-                "frequency": 142,
-                "cluster": "agency_selection"
+                "evidence": p["evidence"],
+                "frequency": p["frequency"],
+                "cluster": p["cluster"],
+                "image_context": p.get("image_context", ""),
+                "voice_markers": p.get("voice_markers", ""),
             }
-        },
-        {
-            "prompt_id": "AP-PRM-002",
-            "question": "مقایسه وب۲۴ و نوین در سئو تکنیکال و تعرفه خدمات",
-            "source_type": "observed",
-            "intent_stratum": "comparative",
-            "target_entities": ["Web24", "Novin"],
-            "provenance": {
-                "discovered_by": "answerpath_geo",
-                "evidence": "observed",
-                "frequency": 88,
-                "cluster": "comparative_evaluation"
-            }
-        },
-        {
-            "prompt_id": "AP-PRM-003",
-            "question": "کدام آژانس خدمات سئو تضمینی و بهینه‌سازی فنی ارائه می‌دهد؟",
-            "source_type": "generated",
-            "intent_stratum": "informational",
-            "target_entities": entities,
-            "provenance": {
-                "discovered_by": "answerpath_geo",
-                "evidence": "generated",
-                "frequency": 45,
-                "cluster": "service_capabilities"
-            }
-        },
-        {
-            "prompt_id": "AP-PRM-004",
-            "question": "هزینه سئو ماهانه در شرکت‌های معتبر بازاریابی دیجیتال چقدر است؟",
-            "source_type": "observed",
-            "intent_stratum": "transactional",
-            "target_entities": entities,
-            "provenance": {
-                "discovered_by": "answerpath_geo",
-                "evidence": "observed",
-                "frequency": 210,
-                "cluster": "pricing_and_packages"
-            }
-        }
-    ]
+        })
 
     output_payload = {
         "status": "success",
@@ -101,7 +77,8 @@ def run():
     print(f"✓ Generated {len(prompts)} structured prompt records.")
     print(f"✓ Output saved to: {output_file.name}")
     print("\nSample Output Record:")
-    print(json.dumps(prompts[0], indent=2, ensure_ascii=False))
+    if prompts:
+        print(json.dumps(prompts[0], indent=2, ensure_ascii=False))
     print("=" * 70)
     print("Ready for GEO-Scope benchmark execution.")
     print("=" * 70)

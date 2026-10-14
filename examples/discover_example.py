@@ -5,17 +5,23 @@ to discover user questions, classify intent, and format provenance records.
 """
 
 import json
-from answerpath_geo.core import extract_records, mine
+import sys
+from pathlib import Path
+
+# Ensure root directory is on sys.path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from answerpath_geo import mine
 
 def main():
     topic = "خدمات سئو و بهینه‌سازی سایت"
     print(f"=== Discovering questions for topic: '{topic}' ===")
     
-    # Mine questions with clear separation between observed demand and generated templates
-    results = mine(topic=topic, include_generated=True)
+    # Mine questions across conversational text, voice, and multimodal vision prompts
+    results = mine(topic=topic, include_generated=True, benchmark_format=True)
     
     print(f"Total discovered prompts: {len(results)}")
-    print("\nSample Output Record:")
+    print("\nSample Output Record (GEO-Scope Benchmark Compatible):")
     if results:
         print(json.dumps(results[0], ensure_ascii=False, indent=2))
         

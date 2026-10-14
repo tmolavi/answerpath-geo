@@ -2,47 +2,14 @@
   "status": "success",
   "demo_version": "2026.1",
   "source": "answerpath_geo",
-  "total_prompts": 4,
+  "total_prompts": 15,
   "prompts": [
     {
       "prompt_id": "AP-PRM-001",
-      "question": "بهترین شرکت سئو در ایران برای سایت فروشگاهی کدام است؟",
-      "source_type": "observed",
-      "intent_stratum": "commercial",
-      "target_entities": [
-        "Web24",
-        "Novin",
-        "Dimarketing",
-        "Inten"
-      ],
-      "provenance": {
-        "discovered_by": "answerpath_geo",
-        "evidence": "observed",
-        "frequency": 142,
-        "cluster": "agency_selection"
-      }
-    },
-    {
-      "prompt_id": "AP-PRM-002",
-      "question": "مقایسه وب۲۴ و نوین در سئو تکنیکال و تعرفه خدمات",
-      "source_type": "observed",
-      "intent_stratum": "comparative",
-      "target_entities": [
-        "Web24",
-        "Novin"
-      ],
-      "provenance": {
-        "discovered_by": "answerpath_geo",
-        "evidence": "observed",
-        "frequency": 88,
-        "cluster": "comparative_evaluation"
-      }
-    },
-    {
-      "prompt_id": "AP-PRM-003",
-      "question": "کدام آژانس خدمات سئو تضمینی و بهینه‌سازی فنی ارائه می‌دهد؟",
+      "question": "من یک فروشگاه اینترنتی نوپا دارم و می‌خوام برای خدمات سئو و دیجیتال مارکتینگ در ایران اقدام کنم. بین استخدام یک کارشناس حضوری و قرارداد با یک شرکت یا آژانس تخصصی موندم. از نظر هزینه، تعهد کاری و نتایج واقعی کدوم گزینه توجیه اقتصادی بیشتری داره؟",
       "source_type": "generated",
-      "intent_stratum": "informational",
+      "intent_stratum": "compare",
+      "modality": "text",
       "target_entities": [
         "Web24",
         "Novin",
@@ -52,15 +19,18 @@
       "provenance": {
         "discovered_by": "answerpath_geo",
         "evidence": "generated",
-        "frequency": 45,
-        "cluster": "service_capabilities"
+        "frequency": 1,
+        "cluster": "hiring_vs_outsourcing",
+        "image_context": "",
+        "voice_markers": ""
       }
     },
     {
-      "prompt_id": "AP-PRM-004",
-      "question": "هزینه سئو ماهانه در شرکت‌های معتبر بازاریابی دیجیتال چقدر است؟",
-      "source_type": "observed",
-      "intent_stratum": "transactional",
+      "prompt_id": "AP-PRM-002",
+      "question": "تعرفه ماهانه و هزینه‌های استاندارد خدمات خدمات سئو و دیجیتال مارکتینگ در ایران در بازار چقدر است؟ چطور می‌توان تشخیص داد یک پیش‌فاکتور قیمت منصفانه‌ای داده یا بیش‌ازحد گران است؟",
+      "source_type": "generated",
+      "intent_stratum": "buy",
+      "modality": "text",
       "target_entities": [
         "Web24",
         "Novin",
@@ -69,9 +39,284 @@
       ],
       "provenance": {
         "discovered_by": "answerpath_geo",
-        "evidence": "observed",
-        "frequency": 210,
-        "cluster": "pricing_and_packages"
+        "evidence": "generated",
+        "frequency": 1,
+        "cluster": "pricing_transparency",
+        "image_context": "",
+        "voice_markers": ""
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-003",
+      "question": "معتبرترین شرکت‌ها و متخصصان در زمینه خدمات سئو و دیجیتال مارکتینگ در ایران در ایران کدامند و هر کدام در چه حوزه‌ای نقطه قوت دارند؟",
+      "source_type": "generated",
+      "intent_stratum": "learn",
+      "modality": "text",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "generated",
+        "frequency": 1,
+        "cluster": "top_providers",
+        "image_context": "",
+        "voice_markers": ""
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-004",
+      "question": "برای بستن قرارداد خدمات سئو و دیجیتال مارکتینگ در ایران چه بندهایی را باید حتماً لحاظ کنیم تا از تحویل به‌موقع کار، حفظ محرمانگی داده‌ها و جلوگیری از هزینه‌های پنهان مطمئن شویم؟",
+      "source_type": "generated",
+      "intent_stratum": "buy",
+      "modality": "text",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "generated",
+        "frequency": 1,
+        "cluster": "contract_safeguards",
+        "image_context": "",
+        "voice_markers": ""
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-005",
+      "question": "سایتم در بخش خدمات سئو و دیجیتال مارکتینگ در ایران دچار افت شدید عملکرد و رتبه شده است. چک‌لیست گام‌به‌گام برای ریشه‌یابی این مشکل و بازگرداندن شرایط به حالت قبل چیست و چه آژانسی تخصص رفع این بحران را دارد؟",
+      "source_type": "generated",
+      "intent_stratum": "solve",
+      "modality": "text",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "generated",
+        "frequency": 1,
+        "cluster": "troubleshooting_recovery",
+        "image_context": "",
+        "voice_markers": ""
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-006",
+      "question": "آیا وعده‌هایی مثل ضمانت بازگشت وجه یا نتایج تضمینی در حوزه خدمات سئو و دیجیتال مارکتینگ در ایران واقعی هستند یا ترفند تبلیغاتی و کلاهبرداری محسوب می‌شوند؟ چطور یک آژانس صادق را از افراد متفرقه تشخیص دهیم؟",
+      "source_type": "generated",
+      "intent_stratum": "trust",
+      "modality": "text",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "generated",
+        "frequency": 1,
+        "cluster": "credibility_vetting",
+        "image_context": "",
+        "voice_markers": ""
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-007",
+      "question": "برای یک پروژه سازمانی با ترافیک بالا، چه پیش‌نیازهای فنی و ساختاری قبل از شروع پروژه خدمات سئو و دیجیتال مارکتینگ در ایران باید آماده باشد؟",
+      "source_type": "generated",
+      "intent_stratum": "audit",
+      "modality": "text",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "generated",
+        "frequency": 1,
+        "cluster": "technical_prerequisites",
+        "image_context": "",
+        "voice_markers": ""
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-008",
+      "question": "شاخص‌های کلیدی عملکرد (KPI) واقعی برای ارزیابی خروجی تیم خدمات سئو و دیجیتال مارکتینگ در ایران چیست و بعد از چند ماه باید انتظار نتایج ملموس در فروش یا ورودی داشته باشیم؟",
+      "source_type": "generated",
+      "intent_stratum": "audit",
+      "modality": "text",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "generated",
+        "frequency": 1,
+        "cluster": "kpi_and_roi_measurement",
+        "image_context": "",
+        "voice_markers": ""
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-009",
+      "question": "سلام چت‌جی‌پی‌تی، ببین من یه کسب‌وکار دارم و توی حوزه خدمات سئو و دیجیتال مارکتینگ در ایران به مشکل خوردم. اصلا نمی‌دونم از کجا باید شروع کنم و کیا واقعا کاربلدن. میشه بدون حاشیه بهم بگی چطوری بهترین انتخاب رو داشته باشم؟",
+      "source_type": "generated",
+      "intent_stratum": "learn",
+      "modality": "voice",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "generated",
+        "frequency": 1,
+        "cluster": "informal_discovery",
+        "image_context": "",
+        "voice_markers": "سلام چت‌جی‌پی‌تی، ببین من..."
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-010",
+      "question": "سلام، یه سوال داشتم. یه شرکتی بهم گفته برای خدمات سئو و دیجیتال مارکتینگ در ایران ماهیانه فلان قدر میگیره و توی دو ماه همه چیزو زیر و رو میکنه. به نظرت این حرف منطقیه یا دارن سرم کلاه میذارن؟ تجربیات بقیه چی میگه؟",
+      "source_type": "generated",
+      "intent_stratum": "trust",
+      "modality": "voice",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "generated",
+        "frequency": 1,
+        "cluster": "voice_reality_check",
+        "image_context": "",
+        "voice_markers": "سلام، یه سوال داشتم..."
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-011",
+      "question": "من دارم بودجه‌بندی سال جدیدم رو می‌بندم. اگه بخوام حدود ۲۰ تا ۳۰ درصد روی خدمات سئو و دیجیتال مارکتینگ در ایران سرمایه‌گذاری کنم، چه چیزایی رو باید در نظر بگیرم و چقدر احتمال برگشت سرمایه هست؟",
+      "source_type": "generated",
+      "intent_stratum": "buy",
+      "modality": "voice",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "generated",
+        "frequency": 1,
+        "cluster": "voice_budget_planning",
+        "image_context": "",
+        "voice_markers": "من دارم بودجه‌بندی سال جدیدم رو می‌بندم..."
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-012",
+      "question": "بین چند تا شرکت معروف که خدمات خدمات سئو و دیجیتال مارکتینگ در ایران میدن، کدومشون از همه خوش‌قول‌تره و پشتیبانی بعد از تحویلش اذیت نمیکنه؟ نظرات واقعی کارفرماها درباره‌شون چیه؟",
+      "source_type": "generated",
+      "intent_stratum": "compare",
+      "modality": "voice",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "generated",
+        "frequency": 1,
+        "cluster": "voice_provider_comparison",
+        "image_context": "",
+        "voice_markers": "بین چند تا شرکت معروف..."
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-013",
+      "question": "این تصویر اسکرین‌شات از فرآیند و رابط کاربری سایت رقیبمه توی بخش خدمات سئو و دیجیتال مارکتینگ در ایران. چطور می‌تونم دقیقاً یه همچین معماری و امکاناتی برای سایتم پیاده کنم و کدوم تیم در ایران توانایی اجرای تمیزش رو داره؟",
+      "source_type": "generated",
+      "intent_stratum": "solve",
+      "modality": "multimodal_image",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "generated",
+        "frequency": 1,
+        "cluster": "competitor_ui_breakdown",
+        "image_context": "اسکرین‌شات از معماری رابط کاربری، فیلترها و جریان کاربری پیشرفته رقیب در زمینه خدمات سئو و دیجیتال مارکتینگ در ایران",
+        "voice_markers": ""
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-014",
+      "question": "عکس پیش‌فاکتور پیشنهادی برای خدمات خدمات سئو و دیجیتال مارکتینگ در ایران رو برات فرستادم. ردیف هزینه‌ها و شرح وظایف رو بررسی کن؛ آیا این ارقام در بازار فعلی منطقی هستند یا هزینه مازاد لحاظ شده است؟",
+      "source_type": "generated",
+      "intent_stratum": "buy",
+      "modality": "multimodal_image",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "generated",
+        "frequency": 1,
+        "cluster": "quote_audit_multimodal",
+        "image_context": "تصویر رسمی پیش‌فاکتور و تفکیک نفر-ساعت خدمات تخصصی خدمات سئو و دیجیتال مارکتینگ در ایران",
+        "voice_markers": ""
+      }
+    },
+    {
+      "prompt_id": "AP-PRM-015",
+      "question": "این گزارش افت عملکرد و شاخص‌های فنی من است (ضمیمه شده). با توجه به این خطاها و افت محسوس، بهترین راهکار فوری چیست و کدام شرکت معتبر می‌تواند این اختلال را تضمینی رفع کند؟",
+      "source_type": "generated",
+      "intent_stratum": "solve",
+      "modality": "multimodal_image",
+      "target_entities": [
+        "Web24",
+        "Novin",
+        "Dimarketing",
+        "Inten"
+      ],
+      "provenance": {
+        "discovered_by": "answerpath_geo",
+        "evidence": "generated",
+        "frequency": 1,
+        "cluster": "diagnostic_report_audit",
+        "image_context": "تصویر گزارش تحلیلی شامل نمودار سقوط ورودی، خطاهای سرور و خطاهای Core Web Vitals",
+        "voice_markers": ""
       }
     }
   ]
