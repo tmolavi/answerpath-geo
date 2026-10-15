@@ -102,8 +102,12 @@ class _SimpleMetaParser(HTMLParser):
         elif self._in_heading:
             self._curr_heading += data
 
-def extract_website_context(target: str, timeout: int = 4) -> WebsiteContext:
-    """Extracts semantic metadata and brand signals from a website URL or domain."""
+def extract_website_context(target: str, timeout: int = 4, fetch_remote: bool = False) -> WebsiteContext:
+    """Builds safe URL heuristics, optionally fetching remote metadata.
+
+    Remote fetching is opt-in because callers may pass attacker-controlled URLs.
+    The default keeps URL-derived brand/domain context while avoiding SSRF.
+    """
     target = target.strip()
     if not target.startswith(("http://", "https://")):
         url = "https://" + target
@@ -121,6 +125,9 @@ def extract_website_context(target: str, timeout: int = 4) -> WebsiteContext:
         brand=brand_guess,
         language="fa" if domain_clean.endswith(".ir") else "en"
     )
+
+    if not fetch_remote:
+        return ctx
 
     req = urllib.request.Request(
         url,
@@ -234,3 +241,4 @@ def _walk(obj: Any, source: str) -> list[tuple[str, str]]:
         for v in obj:
             out.extend(_walk(v, source))
     return out
+
