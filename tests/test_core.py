@@ -86,6 +86,18 @@ def test_website_url_handling_and_mocked_extraction():
     # Injected brand Novin / نوین in generated queries
     assert any("نوین" in q.text or "novin" in q.text.lower() for q in qs)
 
+def test_url_context_does_not_fetch_by_default():
+    with patch("answerpath_geo.extractor.urllib.request.urlopen") as urlopen:
+        ctx = extract_website_context("https://attacker.example/internal")
+    urlopen.assert_not_called()
+    assert ctx.domain == "attacker.example"
+    assert ctx.brand == "Attacker"
+
+def test_remote_fetch_requires_explicit_opt_in():
+    with patch("answerpath_geo.extractor.urllib.request.urlopen") as urlopen:
+        extract_website_context("https://example.com", fetch_remote=True)
+    urlopen.assert_called_once()
+
 def test_benchmark_format_export(tmp_path):
     bench_data = mine("سئو سایت", benchmark_format=True, count=10)
     assert isinstance(bench_data, list)
@@ -105,3 +117,4 @@ def test_benchmark_format_export(tmp_path):
     loaded = json.loads(bench_file.read_text(encoding="utf-8"))
     assert len(loaded) == len(bench_data)
     assert loaded[0]["id"] == item["id"]
+
